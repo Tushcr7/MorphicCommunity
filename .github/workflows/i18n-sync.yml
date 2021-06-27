@@ -27,7 +27,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-directory: 'src/locales/en.json'
+          source-directory: 'src/locales'
           destination-github-username: 'Tushcr7'
           destination-repository-name: 'morphic-i18n-central'
           target-branch: 'community-sync-tests'
