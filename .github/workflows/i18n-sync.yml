@@ -3,33 +3,36 @@ name: morphic-i18n-central sync
 on:
   push:
     branches:
-      - i18n-repo-sync
-    paths:
-      - 'src/locales/en.json'
+      - i18n-repo-push
+  pull_request:
+    branches:
+      - i18n-repo-push
+    
 
 jobs:
-  sync-i18n-strings:
-    name: Push to morphic-i18n-cental
+  build:
+    name: Push to morphic-i18n-central
 
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name:
+      - name: 'test output'
         run: |
           echo "token:" ${{ secrets.API_TOKEN_GITHUB }}
  
       - name: Push updated i18n file
-        uses: dmnemec/copy_file_to_another_repo_action@main
+        id: push_directory
+        uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: 'src/locales/en.json'
-          destination_repo: 'javihernandez/morphic-i18n-central'
-          destination_branch: 'community-sync-tests'
-          destination_folder: 'morphic-community-webapp'
-          user_email: 'javi@raisingthefloor.org'
-          user_name: 'javihernandez'
+          source-directory: 'src/locales/en.json'
+          destination-github-username: 'Tushcr7'
+          destination-repository-name: 'morphic-i18n-central'
+          target-branch: 'community-sync-tests'
+          # destination_folder: 'morphic-community-webapp'
+          user-email: 'k7tushar@gmail.com'
+          commit-message: 'Push the file'
 
 
