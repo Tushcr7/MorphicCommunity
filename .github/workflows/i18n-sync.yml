@@ -1,4 +1,4 @@
-name: morphic-i18n-central sync
+name: morphic-i18n-central sync with crowdin
 
 on:
   push:
