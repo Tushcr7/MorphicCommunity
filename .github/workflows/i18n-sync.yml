@@ -56,7 +56,7 @@ jobs:
 
           token: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
           source: 'src/locales/en.json'
-          translation: 'src/locales/es/en.json'
+          translation: 'src/locales/%locale%/%original_file_name%'
           base_url: 'https://crowdin.com'
           base_path: 'src/locales'
 
