@@ -51,8 +51,6 @@ jobs:
           dryrun_action: true
 
           project_id: ${{ secrets.CROWDIN_PROJECT_ID }}
-          project_id_env: CROWDIN_PROJECT_ID
-          api_token_env: CROWDIN_PERSONAL_TOKEN
 
           token: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
           source: 'src/locales/en.json'
@@ -64,6 +62,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+          
+          project_id_env: CROWDIN_PROJECT_ID
+          api_token_env: CROWDIN_PERSONAL_TOKEN
  
       # - name: Push updated i18n file
       #   id: push_directory
