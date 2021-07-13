@@ -56,7 +56,7 @@ jobs:
 
           token: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
           source: 'src/locales/en.json'
-          translation: 'src/locales/es_en.json'
+          translation: 'src/locales/es/en.json'
           base_url: 'https://crowdin.com'
           base_path: 'src/locales'
 
@@ -65,19 +65,19 @@ jobs:
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
  
-      - name: Push updated i18n file
-        id: push_directory
-        uses: cpina/github-action-push-to-another-repository@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source-directory: 'src/locales'
-          destination-github-username: 'Tushcr7'
-          destination-repository-name: 'morphic-i18n-central'
-          target-branch: 'community-sync-tests'
-          # destination_folder: 'morphic-community-webapp'
-          user-email: 'k7tushar@gmail.com'
-          commit-message: 'Push the file'
+      # - name: Push updated i18n file
+      #   id: push_directory
+      #   uses: cpina/github-action-push-to-another-repository@main
+      #   env:
+      #     API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      #   with:
+      #     source-directory: 'src/locales'
+      #     destination-github-username: 'Tushcr7'
+      #     destination-repository-name: 'morphic-i18n-central'
+      #     target-branch: 'community-sync-tests'
+      #     # destination_folder: 'morphic-community-webapp'
+      #     user-email: 'k7tushar@gmail.com'
+      #     commit-message: 'Push the file'
 
 
 # CROWDIN_PERSONAL_TOKEN: 8f3c15f0bd426e7bb223ff091563ae2080e52401dd5af20d6082f1a98a409bcf4c329f1d9fd403cb
